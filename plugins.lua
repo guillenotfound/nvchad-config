@@ -1,4 +1,4 @@
-local overrides = require("custom.configs.overrides")
+local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
@@ -25,7 +25,7 @@ local plugins = {
   -- override plugin configs
   {
     "williamboman/mason.nvim",
-    opts = overrides.mason
+    opts = overrides.mason,
   },
 
   {
@@ -36,6 +36,9 @@ local plugins = {
   {
     "nvim-tree/nvim-tree.lua",
     opts = overrides.nvimtree,
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+    },
   },
 
   -- Install a plugin
@@ -46,6 +49,20 @@ local plugins = {
       require("better_escape").setup()
     end,
   },
+
+  -- Git related
+  { "tpope/vim-fugitive" },
+
+  { "tpope/vim-rhubarb" },
+
+  {
+    "tommcdo/vim-fubitive",
+    config = function()
+      vim.g.fubitive_domain_pattern = "bitbucket.corp.zscaler.com"
+    end,
+  },
+
+  { "tpope/vim-sleuth" },
 
   -- To make a plugin not be loaded
   -- {
