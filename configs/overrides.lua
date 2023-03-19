@@ -7,14 +7,13 @@ M.treesitter = {
     "html",
     "css",
     "javascript",
-    "c",
     "markdown",
     "markdown_inline",
   },
   indent = {
     enable = true,
     disable = {
-      "python"
+      "python",
     },
   },
 }
@@ -29,7 +28,11 @@ M.mason = {
     "css-lsp",
     "html-lsp",
     "typescript-language-server",
-    "deno",
+    "docker-compose-language-service",
+    "dockerfile-language-server",
+    "bash-language-server",
+    "eslint_d",
+    "prettierd",
   },
 }
 
