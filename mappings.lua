@@ -4,12 +4,8 @@ local M = {}
 M.general = {
   i = {
     ["<C-d>"] = { "<Del>", "forward delete" },
-
-    ["<esc>"] = { "<Nop>", "disable Esc to exit insert mode" },
   },
   n = {
-    [";"] = { ":", "enter command mode", opts = { nowait = true } },
-
     ["<C-d>"] = { "<C-d>zz" },
     ["<C-u>"] = { "<C-u>zz" },
 
@@ -24,6 +20,13 @@ M.general = {
     ["<down>"] = { "<Nop>" },
     ["<left>"] = { "<Nop>" },
     ["<right>"] = { "<Nop>" },
+
+    ["<leader>rn"] = {
+      function()
+        vim.lsp.buf.rename()
+      end,
+      "lsp rename",
+    },
   },
   v = {
     ["K"] = { ":m '<-2<CR>gv=gv" },
@@ -44,10 +47,10 @@ M.telescope = {
 
   n = {
     -- find
-    ["<leader>sf"] = { "<cmd> Telescope find_files <CR>", "find files" },
-    ["<leader>sg"] = { "<cmd> Telescope live_grep <CR>", "live grep" },
-    ["<leader><leader>"] = { "<cmd> Telescope buffers <CR>", "find buffers" },
-    ["<leader>?"] = { "<cmd> Telescope help_tags <CR>", "help page" },
+    ["<leader>sf"] = { "<cmd> Telescope find_files <CR>", "[S]earch [F]iles" },
+    ["<leader>sg"] = { "<cmd> Telescope live_grep <CR>", "[S]earch by [G]rep" },
+    ["<leader>sd"] = { "<cmd> Telescope diagnostics <CR>", "[S]earch [D]iagnostics" },
+    ["<leader><leader>"] = { "<cmd> Telescope buffers <CR>", "[ ] Find existing buffers" },
   },
 }
 
