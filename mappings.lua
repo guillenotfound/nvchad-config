@@ -1,6 +1,12 @@
 ---@type MappingsTable
 local M = {}
 
+M.disabled = {
+  n = {
+     ["<C-n>"] = "",
+  }
+}
+
 M.general = {
   i = {
     ["<C-d>"] = { "<Del>", "forward delete" },
@@ -54,10 +60,21 @@ M.telescope = {
 
   n = {
     -- find
-    ["<leader>sf"] = { "<cmd> Telescope find_files <CR>", "find files" },
-    ["<leader>sg"] = { "<cmd> Telescope live_grep <CR>", "live grep" },
-    ["<leader><leader>"] = { "<cmd> Telescope buffers <CR>", "find buffers" },
-    ["<leader>?"] = { "<cmd> Telescope help_tags <CR>", "help page" },
+    ["<leader>sf"] = { "<cmd> Telescope find_files <CR>", "[S]earch [F]iles" },
+    ["<leader>sg"] = { "<cmd> Telescope live_grep <CR>", "[S]earch by [G]rep" },
+    ["<leader>sd"] = { "<cmd> Telescope diagnostics <CR>", "[S]earch [D]iagnostics" },
+    ["<leader>ds"] = { "<cmd> Telescope lsp_document_symbols <CR>", "[D]ocument [S]ymbols" },
+    ["<leader><leader>"] = { "<cmd> Telescope buffers <CR>", "[ ] Find existing buffers" },
+    ["<leader>swf"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "[/] Fuzzily search in current buffer" },
+  },
+}
+
+M.nvimtree = {
+  plugin = true,
+
+  n = {
+    -- toggle
+    ["<leader>b"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
   },
 }
 
