@@ -64,6 +64,8 @@ local plugins = {
 
   { "tpope/vim-sleuth" },
 
+  { "tpope/vim-surround", lazy = false },
+
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
