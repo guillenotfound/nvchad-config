@@ -11,6 +11,7 @@ local servers = {
   "dockerls",
   "gopls",
   "html",
+  "tailwindcss",
   "tsserver",
   "volar",
 }

@@ -36,6 +36,7 @@ M.mason = {
     "lua-language-server",
     "prettierd",
     "stylua",
+    "tailwindcss-language-server",
     "typescript-language-server",
     "vue-language-server",
   },
