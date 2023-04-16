@@ -14,6 +14,7 @@ M.treesitter = {
     "tsx",
     "typescript",
     "vim",
+    "vue",
   },
   indent = {
     enable = true,
@@ -36,6 +37,7 @@ M.mason = {
     "prettierd",
     "stylua",
     "typescript-language-server",
+    "vue-language-server",
   },
 }
 

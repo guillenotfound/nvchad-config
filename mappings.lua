@@ -4,6 +4,7 @@ local M = {}
 M.disabled = {
   n = {
      ["<C-n>"] = "",
+     ["<C-c>"] = "",
   }
 }
 
@@ -14,8 +15,6 @@ M.general = {
     ["<esc>"] = { "<Nop>", "disable Esc to exit insert mode" },
   },
   n = {
-    [";"] = { ":", "enter command mode", opts = { nowait = true } },
-
     ["<C-d>"] = { "<C-d>zz" },
     ["<C-u>"] = { "<C-u>zz" },
 
