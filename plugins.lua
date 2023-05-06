@@ -51,34 +51,26 @@ local plugins = {
   },
 
   -- Git related
-  { "tpope/vim-fugitive" },
+  { "tpope/vim-fugitive", event = "VeryLazy" },
 
-  { "tpope/vim-rhubarb" },
+  { "tpope/vim-rhubarb", event = "VeryLazy" },
 
   {
     "tommcdo/vim-fubitive",
     config = function()
       vim.g.fubitive_domain_pattern = "bitbucket.corp.zscaler.com"
     end,
+    event = "VeryLazy",
   },
 
-  { "tpope/vim-sleuth" },
+  { "tpope/vim-sleuth", event = "BufRead" },
 
-  { "tpope/vim-surround", lazy = false },
+  { "tpope/vim-surround", event = "BufRead" },
 
-  -- To make a plugin not be loaded
-  -- {
-  --   "NvChad/nvim-colorizer.lua",
-  --   enabled = false
-  -- },
-
-  -- All NvChad plugins are lazy-loaded by default
-  -- For a plugin to be loaded, you will need to set either `ft`, `cmd`, `keys`, `event`, or set `lazy = false`
-  -- If you want a plugin to load on startup, add `lazy = false` to a plugin spec, for example
-  -- {
-  --   "mg979/vim-visual-multi",
-  --   lazy = false,
-  -- }
+  -- { import = "custom.configs.extras.copilot" },
+  { import = "custom.configs.extras.diffview" },
+  { import = "custom.configs.extras.mason-extras" },
+  { import = "custom.configs.extras.trouble" },
 }
 
 return plugins

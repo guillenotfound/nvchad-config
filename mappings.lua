@@ -83,6 +83,19 @@ M.nvimtree = {
   },
 }
 
+M.trouble = {
+  plugin = true,
+
+  n = {
+    ["<leader>tx"] = { "<cmd>TroubleToggle<cr>" },
+    ["<leader>tw"] = { "<cmd>TroubleToggle workspace_diagnostics<cr>" },
+    ["<leader>td"] = { "<cmd>TroubleToggle document_diagnostics<cr>" },
+    ["<leader>tl"] = { "<cmd>TroubleToggle loclist<cr>" },
+    ["<leader>tq"] = { "<cmd>TroubleToggle quickfix<cr>" },
+    ["gR"] = { "<cmd>TroubleToggle lsp_references<cr>" },
+  },
+}
+
 -- more keybinds!
 
 return M
