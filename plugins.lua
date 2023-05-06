@@ -51,27 +51,26 @@ local plugins = {
   },
 
   -- Git related
-  { "tpope/vim-fugitive" },
+  { "tpope/vim-fugitive", event = "VeryLazy" },
 
-  { "tpope/vim-rhubarb" },
+  { "tpope/vim-rhubarb", event = "VeryLazy" },
 
   {
     "tommcdo/vim-fubitive",
     config = function()
       vim.g.fubitive_domain_pattern = "bitbucket.corp.zscaler.com"
     end,
+    event = "VeryLazy",
   },
 
-  { "tpope/vim-sleuth" },
+  { "tpope/vim-sleuth", event = "BufRead" },
 
-  { "tpope/vim-surround", lazy = false },
+  { "tpope/vim-surround", event = "BufRead" },
 
-  -- To make a plugin not be loaded
-  -- {
-  --   "NvChad/nvim-colorizer.lua",
-  --   enabled = false
-  -- },
-
+  -- { import = "custom.configs.extras.copilot" },
+  { import = "custom.configs.extras.diffview" },
+  { import = "custom.configs.extras.mason-extras" },
+  { import = "custom.configs.extras.trouble" },
 }
 
 return plugins
