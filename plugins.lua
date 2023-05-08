@@ -35,10 +35,8 @@ local plugins = {
   -- Install a plugin
   {
     "max397574/better-escape.nvim",
+    config = true,
     event = "InsertEnter",
-    config = function()
-      require("better_escape").setup()
-    end,
   },
 
   {
@@ -66,6 +64,15 @@ local plugins = {
   { "tpope/vim-sleuth", event = "BufRead" },
 
   { "tpope/vim-surround", event = "BufRead" },
+
+  {
+    "folke/todo-comments.nvim",
+    config = true,
+    event = "BufRead",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+  },
 
   -- { import = "custom.configs.extras.copilot" },
   { import = "custom.configs.extras.diffview" },
