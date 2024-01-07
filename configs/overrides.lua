@@ -63,4 +63,14 @@ M.nvimtree = {
   }
 }
 
+M.telescope = {
+  extensions_list = { "themes", "terms", "fzf", "frecency" },
+  extensions = {
+    frecency = {
+      db_safe_mode = false,
+      auto_validate = false,
+    }
+  }
+}
+
 return M

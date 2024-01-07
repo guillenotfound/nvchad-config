@@ -65,8 +65,7 @@ M.telescope = {
 
   n = {
     -- find
-    ["<leader>sf"] = { "<cmd> Telescope find_files <CR>", "[S]earch [F]iles" },
-    ["<leader>sg"] = { "<cmd> Telescope live_grep <CR>", "[S]earch by [G]rep" },
+    ["<leader>ff"] = { "<cmd> Telescope frecency workspace=CWD <CR>", "[F]ind [F]iles" },
     ["<leader>sd"] = { "<cmd> Telescope diagnostics <CR>", "[S]earch [D]iagnostics" },
     ["<leader>ds"] = { "<cmd> Telescope lsp_document_symbols <CR>", "[D]ocument [S]ymbols" },
     ["<leader><leader>"] = { "<cmd> Telescope buffers <CR>", "[ ] Find existing buffers" },
@@ -101,7 +100,7 @@ M.todo_comments = {
   n = {
     ["]t"] = { ":lua require('todo-comments').jump_next()<cr>", "Next todo commnent" },
     ["[t"] = { ":lua require('todo-comments').jump_prev()<cr>", "Previous todo commnent" },
-    ["<leader>ft"] = { "<cmd>TodoTelescope<cr>", "[Find] [T]ODO" },
+    ["<leader>ft"] = { "<cmd>TodoTelescope<cr>", "[F]ind [T]ODO" },
   },
 }
 

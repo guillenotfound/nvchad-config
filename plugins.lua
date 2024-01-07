@@ -72,10 +72,32 @@ local plugins = {
 
   { import = "custom.configs.extras.diffview" },
   { import = "custom.configs.extras.mason-extras" },
-  { import = "custom.configs.extras.telescope-fzf-native" },
   { import = "custom.configs.extras.todo-comments" },
   { import = "custom.configs.extras.trouble" },
   { import = "custom.configs.extras.typescript-tools" },
+
+
+  {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    dependencies = { "telescope.nvim" },
+    build = "make",
+    config = function ()
+      require("telescope").load_extension("fzf")
+    end,
+  },
+
+  {
+    "nvim-telescope/telescope-frecency.nvim",
+    dependencies = { "telescope.nvim" },
+    config = function()
+      require("telescope").load_extension("frecency")
+    end,
+  },
+
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = overrides.telescope,
+  },
 
   -- disabled plugins
 
