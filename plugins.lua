@@ -72,6 +72,7 @@ local plugins = {
 
   { import = "custom.configs.extras.diffview" },
   { import = "custom.configs.extras.mason-extras" },
+  { import = "custom.configs.extras.telescope-fzf-native" },
   { import = "custom.configs.extras.todo-comments" },
   { import = "custom.configs.extras.trouble" },
   { import = "custom.configs.extras.typescript-tools" },
