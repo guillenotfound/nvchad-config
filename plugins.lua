@@ -29,13 +29,6 @@ local plugins = {
     opts = overrides.nvimtree,
   },
 
-  -- disabled plugins
-
-  {
-    "NvChad/nvterm",
-    enabled = false,
-  },
-
   -- Install a plugin
   {
     "max397574/better-escape.nvim",
@@ -74,6 +67,13 @@ local plugins = {
   { import = "custom.configs.extras.todo-comments" },
   { import = "custom.configs.extras.trouble" },
   { import = "custom.configs.extras.typescript-tools" },
+
+  -- disabled plugins
+
+  {
+    "NvChad/nvterm",
+    enabled = false,
+  },
 }
 
 return plugins
