@@ -67,8 +67,9 @@ M.telescope = {
   extensions_list = { "themes", "terms", "fzf", "frecency" },
   extensions = {
     frecency = {
-      db_safe_mode = false,
       auto_validate = false,
+      db_safe_mode = false,
+      ignore_patterns = { "*.git/*", "*/tmp/*", "term://*", "*/node_modules/*" },
       show_filter_column = false,
     }
   }

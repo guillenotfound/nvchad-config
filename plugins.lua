@@ -102,7 +102,9 @@ local plugins = {
   {
     "HiPhish/rainbow-delimiters.nvim",
     event = "BufRead",
-    config = true,
+    config = function ()
+      require('rainbow-delimiters.setup').setup {}
+    end
   },
 
   -- disabled plugins
