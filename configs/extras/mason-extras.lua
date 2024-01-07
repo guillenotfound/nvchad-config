@@ -51,39 +51,42 @@ local setup = function(_, opts)
     -- Here, we disable lua_ls so we can use NvChad's default config
     ["lua_ls"] = function() end,
 
-    -- ["eslint-lsp"] = function ()
-    --   require("lspconfig").eslint.setup {
-    --     on_attach = function(client, bufnr)
-    --       vim.api.nvim_create_autocmd("BufWritePre", {
-    --         buffer = bufnr,
-    --         command = "EslintFixAll",
-    --       })
-    --     end,
-    --   }
-    -- end,
+    ["eslint"] = function ()
+      lspconfig.eslint.setup {
+        on_attach = function(client, bufnr)
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            command = "EslintFixAll",
+          })
+        end,
+        capabilities = capabilities,
+      }
+    end,
 
-    lspconfig.gopls.setup {
-      on_attach = on_attach,
-      capabilities = capabilities,
-      cmd = {"gopls"},
-      cmd_env = {
-        GOFLAGS = "-tags=test,e2e_test,integration_test,acceptance_test",
-      },
-      filetypes = { "go", "gomod", "gowork", "gotmpl" },
-      root_dir = util.root_pattern("go.work", "go.mod", ".git"),
-      settings = {
-        gopls = {
-          completeUnimported = true,
-          usePlaceholders = true,
-          analyses = {
-            unusedparams = true,
+    ["gopls"] = function ()
+      lspconfig.gopls.setup {
+        on_attach = on_attach,
+        capabilities = capabilities,
+        cmd = {"gopls"},
+        cmd_env = {
+          GOFLAGS = "-tags=test,e2e_test,integration_test,acceptance_test",
+        },
+        filetypes = { "go", "gomod", "gowork", "gotmpl" },
+        root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+        settings = {
+          gopls = {
+            completeUnimported = true,
+            usePlaceholders = true,
+            analyses = {
+              unusedparams = true,
+            },
           },
         },
-      },
-    },
+      }
+    end,
 
     ["jsonls"] = function()
-      require("lspconfig").jsonls.setup {
+      lspconfig.jsonls.setup {
         on_attach = on_attach,
         capabilities = capabilities,
         settings = {
@@ -127,6 +130,14 @@ local setup = function(_, opts)
             },
           },
         },
+      }
+    end,
+
+    ["tailwindcss"] = function ()
+      lspconfig.tailwindcss.setup {
+        on_attach = on_attach,
+        capabilities = capabilities,
+        filetypes = { "vue" }
       }
     end,
   }
