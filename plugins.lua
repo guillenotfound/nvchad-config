@@ -45,6 +45,14 @@ local plugins = {
     end,
   },
 
+  -- TODO: check what this guy is actually doing.
+  {
+    "mfussenegger/nvim-lint",
+    config = function()
+      require "custom.configs.nvim_lint"
+    end,
+  },
+
   -- Git related
   { "tpope/vim-fugitive", event = "VeryLazy" },
 
