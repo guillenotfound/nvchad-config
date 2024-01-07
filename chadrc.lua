@@ -20,6 +20,8 @@ M.ui = {
   },
 }
 
+M.ui.extended_integrations = {"trouble", "todo", "rainbowdelimiters"}
+
 M.plugins = "custom.plugins"
 
 -- check core.mappings for table structure

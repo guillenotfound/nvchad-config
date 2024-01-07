@@ -99,6 +99,12 @@ local plugins = {
     opts = overrides.telescope,
   },
 
+  {
+    "HiPhish/rainbow-delimiters.nvim",
+    event = "BufRead",
+    config = true,
+  },
+
   -- disabled plugins
 
   {
