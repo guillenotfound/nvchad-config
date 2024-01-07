@@ -10,6 +10,14 @@ M.ui = {
 
   hl_override = highlights.override,
   hl_add = highlights.add,
+
+  -- Remove gap when using nvim-tree on the right side
+  tabufline = {
+    overriden_modules = function(modules)
+       table.insert(modules, modules[1])
+       table.remove(modules, 1)
+    end,
+  },
 }
 
 M.plugins = "custom.plugins"
