@@ -4,9 +4,12 @@ local options = {
 	formatters_by_ft = {
 		lua = { "stylua" },
 
-		javascript = { "prettier" },
-		css = { "prettier" },
-		html = { "prettier" },
+		css = { { "prettierd" , "prettier" } },
+		html = { { "prettierd" , "prettier" } },
+		javascript = { { "prettierd" , "prettier" } },
+		jsx = { { "prettierd" , "prettier" } },
+		tsx = { { "prettierd" , "prettier" } },
+		typescript = { { "prettierd" , "prettier" } },
 
 		sh = { "shfmt" },
 	},
