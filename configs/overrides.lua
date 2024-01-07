@@ -2,15 +2,14 @@ local M = {}
 
 M.treesitter = {
   ensure_installed = {
+    "bash",
     "css",
     "dockerfile",
     "go",
     "html",
-    "html",
     "javascript",
     "lua",
     "markdown",
-    "markdown_inline",
     "tsx",
     "typescript",
     "vim",
@@ -31,13 +30,13 @@ M.mason = {
     "docker-compose-language-service",
     "dockerfile-language-server",
     "eslint_d",
-    "gopls",
+    "gopls@v0.11.0",
     "html-lsp",
+    "json-lsp",
     "lua-language-server",
     "prettierd",
     "stylua",
     "tailwindcss-language-server",
-    "typescript-language-server",
     "vue-language-server",
   },
 }
@@ -56,6 +55,11 @@ M.nvimtree = {
       },
     },
   },
+
+  view = {
+    side = "right",
+    width = 35,
+  }
 }
 
 return M

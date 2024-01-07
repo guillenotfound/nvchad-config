@@ -70,7 +70,6 @@ M.telescope = {
     ["<leader>sd"] = { "<cmd> Telescope diagnostics <CR>", "[S]earch [D]iagnostics" },
     ["<leader>ds"] = { "<cmd> Telescope lsp_document_symbols <CR>", "[D]ocument [S]ymbols" },
     ["<leader><leader>"] = { "<cmd> Telescope buffers <CR>", "[ ] Find existing buffers" },
-    ["<leader>swf"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "[/] Fuzzily search in current buffer" },
   },
 }
 
@@ -96,6 +95,14 @@ M.trouble = {
   },
 }
 
--- more keybinds!
+M.todo_comments = {
+  plugin = true,
+
+  n = {
+    ["]t"] = { ":lua require('todo-comments').jump_next()<cr>", "Next todo commnent" },
+    ["[t"] = { ":lua require('todo-comments').jump_prev()<cr>", "Previous todo commnent" },
+    ["<leader>ft"] = { "<cmd>TodoTelescope<cr>", "[Find] [T]ODO" },
+  },
+}
 
 return M

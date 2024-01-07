@@ -3,17 +3,20 @@ local setup = function(_, opts)
   local capabilities = require("plugins.configs.lspconfig").capabilities
 
   local lspconfig = require "lspconfig"
+  local util = require "lspconfig/util"
 
   -- List of servers to install
   local servers = {
-    "clangd",
+    "bashls",
     "cssls",
     "docker_compose_language_service",
     "dockerls",
+    "eslint",
     "gopls",
     "html",
+    "jsonls",
+    "lua_ls",
     "tailwindcss",
-    "tsserver",
     "volar",
   }
 
@@ -47,6 +50,85 @@ local setup = function(_, opts)
     -- Example: disable auto configuring an LSP
     -- Here, we disable lua_ls so we can use NvChad's default config
     ["lua_ls"] = function() end,
+
+    -- ["eslint-lsp"] = function ()
+    --   require("lspconfig").eslint.setup {
+    --     on_attach = function(client, bufnr)
+    --       vim.api.nvim_create_autocmd("BufWritePre", {
+    --         buffer = bufnr,
+    --         command = "EslintFixAll",
+    --       })
+    --     end,
+    --   }
+    -- end,
+
+    lspconfig.gopls.setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+      cmd = {"gopls"},
+      cmd_env = {
+        GOFLAGS = "-tags=test,e2e_test,integration_test,acceptance_test",
+      },
+      filetypes = { "go", "gomod", "gowork", "gotmpl" },
+      root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+      settings = {
+        gopls = {
+          completeUnimported = true,
+          usePlaceholders = true,
+          analyses = {
+            unusedparams = true,
+          },
+        },
+      },
+    },
+
+    ["jsonls"] = function()
+      require("lspconfig").jsonls.setup {
+        on_attach = on_attach,
+        capabilities = capabilities,
+        settings = {
+          json = {
+            validate = { enable = true },
+            schemas = {
+              {
+                fileMatch = { 'package.json' },
+                url = 'https://json.schemastore.org/package.json',
+              },
+              {
+                description = "TypeScript compiler configuration file",
+                fileMatch = { "tsconfig.json", "tsconfig.*.json" },
+                url = "http://json.schemastore.org/tsconfig",
+              },
+              {
+                description = "Lerna config",
+                fileMatch = { "lerna.json" },
+                url = "http://json.schemastore.org/lerna",
+              },
+              {
+                description = "Babel configuration",
+                fileMatch = { ".babelrc.json", ".babelrc", "babel.config.json" },
+                url = "http://json.schemastore.org/lerna",
+              },
+              {
+                description = "ESLint config",
+                fileMatch = { ".eslintrc.json", ".eslintrc" },
+                url = "http://json.schemastore.org/eslintrc",
+              },
+              {
+                description = "Prettier config",
+                fileMatch = { ".prettierrc", ".prettierrc.json", "prettier.config.json" },
+                url = "http://json.schemastore.org/prettierrc",
+              },
+              {
+                description = "Stylelint config",
+                fileMatch = { ".stylelintrc", ".stylelintrc.json", "stylelint.config.json" },
+                url = "http://json.schemastore.org/stylelintrc",
+              },
+            },
+          },
+        },
+      }
+    end,
   }
 end
 
@@ -68,11 +150,10 @@ local spec = {
       "folke/neodev.nvim",
       config = true,
     },
-    {
-      "j-hui/fidget.nvim",
-      config = true,
-    },
-    -- TODO: Add mason-null-ls? mason-dap?
+    -- {
+    --   "j-hui/fidget.nvim",
+    --   config = true,
+    -- },
   },
 }
 

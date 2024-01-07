@@ -39,8 +39,8 @@ local plugins = {
   -- Install a plugin
   {
     "max397574/better-escape.nvim",
-    config = true,
     event = "InsertEnter",
+    config = true
   },
 
   {
@@ -69,19 +69,11 @@ local plugins = {
 
   { "tpope/vim-surround", event = "BufRead" },
 
-  {
-    "folke/todo-comments.nvim",
-    config = true,
-    event = "BufRead",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-  },
-
-  -- { import = "custom.configs.extras.copilot" },
   { import = "custom.configs.extras.diffview" },
   { import = "custom.configs.extras.mason-extras" },
+  { import = "custom.configs.extras.todo-comments" },
   { import = "custom.configs.extras.trouble" },
+  { import = "custom.configs.extras.typescript-tools" },
 }
 
 return plugins
