@@ -69,6 +69,7 @@ M.telescope = {
     frecency = {
       db_safe_mode = false,
       auto_validate = false,
+      show_filter_column = false,
     }
   }
 }
