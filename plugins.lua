@@ -27,9 +27,13 @@ local plugins = {
   {
     "nvim-tree/nvim-tree.lua",
     opts = overrides.nvimtree,
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter-textobjects",
-    },
+  },
+
+  -- disabled plugins
+
+  {
+    "NvChad/nvterm",
+    enabled = false,
   },
 
   -- Install a plugin
