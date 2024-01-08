@@ -66,9 +66,16 @@ M.telescope = {
   n = {
     -- find
     ["<leader>ff"] = { "<cmd> Telescope frecency workspace=CWD <CR>", "[F]ind [F]iles" },
+    ["<leader>fww"] = { function ()
+      local word = vim.fn.expand("<cword>")
+      require('telescope.builtin').grep_string({ search = word })
+    end, "Grep word under cursor" },
+    ["<leader>fW"] = { function ()
+      local word = vim.fn.expand("<cWORD>")
+      require('telescope.builtin').grep_string({ search = word })
+    end, "Grep WORD under cursor" },
     ["<leader>sd"] = { "<cmd> Telescope diagnostics <CR>", "[S]earch [D]iagnostics" },
     ["<leader>ds"] = { "<cmd> Telescope lsp_document_symbols <CR>", "[D]ocument [S]ymbols" },
-    ["<leader><leader>"] = { "<cmd> Telescope buffers <CR>", "[ ] Find existing buffers" },
   },
 }
 
