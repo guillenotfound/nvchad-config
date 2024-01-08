@@ -94,17 +94,13 @@ local plugins = {
     "nvim-telescope/telescope-fzf-native.nvim",
     dependencies = { "telescope.nvim" },
     build = "make",
-    config = function ()
-      require("telescope").load_extension("fzf")
-    end,
+    config = function() end
   },
 
   {
     "nvim-telescope/telescope-frecency.nvim",
     dependencies = { "telescope.nvim" },
-    config = function()
-      require("telescope").load_extension("frecency")
-    end,
+    config = function() end
   },
 
   {
