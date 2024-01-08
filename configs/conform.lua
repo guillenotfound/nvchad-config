@@ -7,9 +7,8 @@ local options = {
 		css = { { "prettierd" , "prettier" } },
 		html = { { "prettierd" , "prettier" } },
 		javascript = { { "prettierd" , "prettier" } },
-		jsx = { { "prettierd" , "prettier" } },
-		tsx = { { "prettierd" , "prettier" } },
 		typescript = { { "prettierd" , "prettier" } },
+		typescriptreact = { { "prettierd" , "prettier" } },
 
 		sh = { "shfmt" },
 	},
