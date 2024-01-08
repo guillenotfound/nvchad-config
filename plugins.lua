@@ -76,6 +76,19 @@ local plugins = {
   { import = "custom.configs.extras.trouble" },
   { import = "custom.configs.extras.typescript-tools" },
 
+  {
+    "stevearc/dressing.nvim",
+    init = function()
+      vim.ui.select = function(...)
+        require("lazy").load({ plugins = { "dressing.nvim" } })
+        return vim.ui.select(...)
+      end
+      vim.ui.input = function(...)
+        require("lazy").load({ plugins = { "dressing.nvim" } })
+        return vim.ui.input(...)
+      end
+    end,
+  },
 
   {
     "nvim-telescope/telescope-fzf-native.nvim",
