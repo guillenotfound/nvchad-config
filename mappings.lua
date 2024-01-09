@@ -36,6 +36,8 @@ M.general = {
     ["<leader>|"] = { "<C-w>v" },
     ["<leader>-"] = { "<C-w>s" },
 
+    ["<leader>s"] = { [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]] },
+
     -- disable direction keys
     ["<up>"] = { "<Nop>" },
     ["<down>"] = { "<Nop>" },
