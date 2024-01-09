@@ -71,6 +71,7 @@ local plugins = {
   { "tpope/vim-surround", event = "BufRead" },
 
   { import = "custom.configs.extras.diffview" },
+  { import = "custom.configs.extras.harpoon" },
   { import = "custom.configs.extras.mason-extras" },
   { import = "custom.configs.extras.todo-comments" },
   { import = "custom.configs.extras.trouble" },
