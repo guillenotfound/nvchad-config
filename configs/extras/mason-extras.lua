@@ -161,10 +161,6 @@ local spec = {
       "folke/neodev.nvim",
       config = true,
     },
-    -- {
-    --   "j-hui/fidget.nvim",
-    --   config = true,
-    -- },
   },
 }
 

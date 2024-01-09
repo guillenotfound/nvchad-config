@@ -10,6 +10,7 @@ M.treesitter = {
     "javascript",
     "lua",
     "markdown",
+    "markdown_inline",
     "tsx",
     "typescript",
     "vim",
@@ -37,7 +38,7 @@ M.mason = {
     "prettierd",
     "stylua",
     "tailwindcss-language-server",
-    "typescript-language-server",
+    -- "typescript-language-server",
     "vue-language-server",
   },
 }
@@ -69,7 +70,7 @@ M.telescope = {
     frecency = {
       auto_validate = false,
       db_safe_mode = false,
-      ignore_patterns = { "*.git/*", "*/tmp/*", "term://*", "*/node_modules/*" },
+      ignore_patterns = { "*.git/*", "*/tmp/*", "term://*", "*/node_modules/*", "fugitive://*" },
       show_filter_column = false,
     }
   }

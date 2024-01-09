@@ -71,25 +71,13 @@ local plugins = {
   { "tpope/vim-surround", event = "BufRead" },
 
   { import = "custom.configs.extras.diffview" },
+  { import = "custom.configs.extras.dressing" },
   { import = "custom.configs.extras.harpoon" },
   { import = "custom.configs.extras.mason-extras" },
+  { import = "custom.configs.extras.noice" },
   { import = "custom.configs.extras.todo-comments" },
   { import = "custom.configs.extras.trouble" },
   { import = "custom.configs.extras.typescript-tools" },
-
-  {
-    "stevearc/dressing.nvim",
-    init = function()
-      vim.ui.select = function(...)
-        require("lazy").load({ plugins = { "dressing.nvim" } })
-        return vim.ui.select(...)
-      end
-      vim.ui.input = function(...)
-        require("lazy").load({ plugins = { "dressing.nvim" } })
-        return vim.ui.input(...)
-      end
-    end,
-  },
 
   {
     "nvim-telescope/telescope-fzf-native.nvim",
