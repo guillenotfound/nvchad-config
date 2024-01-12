@@ -5,14 +5,6 @@ local plugins = {
 
   -- Override plugin definition options
 
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      require "plugins.configs.lspconfig"
-      require "custom.configs.lspconfig"
-    end, -- Override to setup mason-lspconfig
-  },
-
   -- override plugin configs
   {
     "williamboman/mason.nvim",
@@ -80,20 +72,14 @@ local plugins = {
   { import = "custom.configs.extras.typescript-tools" },
 
   {
-    "nvim-telescope/telescope-fzf-native.nvim",
-    dependencies = { "telescope.nvim" },
-    build = "make",
-    config = function() end
-  },
-
-  {
-    "nvim-telescope/telescope-frecency.nvim",
-    dependencies = { "telescope.nvim" },
-    config = function() end
-  },
-
-  {
     "nvim-telescope/telescope.nvim",
+    dependencies = {
+      {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make",
+      },
+      "nvim-telescope/telescope-frecency.nvim"
+    },
     opts = overrides.telescope,
   },
 
