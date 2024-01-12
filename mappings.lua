@@ -15,8 +15,6 @@ M.general = {
     ["<esc>"] = { "<Nop>", "disable Esc to exit insert mode" },
   },
   n = {
-    [";"] = { ":", "enter command mode", opts = { nowait = true } },
-
     --  format with conform
     ["<leader>fm"] = {
       function()
