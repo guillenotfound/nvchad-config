@@ -11,9 +11,11 @@ M.treesitter = {
     "lua",
     "markdown",
     "markdown_inline",
+    "regex",
     "tsx",
     "typescript",
     "vim",
+    "vimdoc",
     "vue",
   },
   indent = {
