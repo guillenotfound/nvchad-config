@@ -30,9 +30,7 @@ local spec = {
       },
     }
 
-    -- require("notify").setup {
-    --   background_colour = "#FF0000",
-    -- }
+    dofile(vim.g.base46_cache .. "notify")
   end,
 }
 

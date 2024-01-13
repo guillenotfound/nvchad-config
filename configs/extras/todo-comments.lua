@@ -1,13 +1,14 @@
 ---@type NvPluginSpec
 local spec = {
   "folke/todo-comments.nvim",
-  config = true,
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
   event = "BufRead",
-  init = function()
+  config = function()
+    dofile(vim.g.base46_cache .. "todo")
     require("core.utils").load_mappings "todo_comments"
+    require("todo-comments").setup()
   end,
 }
 

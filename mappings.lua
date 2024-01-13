@@ -74,6 +74,7 @@ M.telescope = {
       local word = vim.fn.expand("<cWORD>")
       require('telescope.builtin').grep_string({ search = word })
     end, "Grep WORD under cursor" },
+    ["<leader>fo"] = { "<cmd> Telescope oldfiles cwd=vim.loop.cwd()<CR>", "Find oldfiles" },
     ["<leader>sd"] = { "<cmd> Telescope diagnostics <CR>", "[S]earch [D]iagnostics" },
     ["<leader>ds"] = { "<cmd> Telescope lsp_document_symbols <CR>", "[D]ocument [S]ymbols" },
   },

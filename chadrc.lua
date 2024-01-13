@@ -21,7 +21,7 @@ M.ui = {
   },
 }
 
-M.ui.extended_integrations = {"trouble", "todo", "rainbowdelimiters"}
+M.ui.extended_integrations = { "notify", "trouble", "todo" }
 
 M.plugins = "custom.plugins"
 

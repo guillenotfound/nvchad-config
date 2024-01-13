@@ -3,8 +3,6 @@ local overrides = require "custom.configs.overrides"
 ---@type NvPluginSpec[]
 local plugins = {
 
-  -- Override plugin definition options
-
   -- override plugin configs
   {
     "williamboman/mason.nvim",
@@ -30,14 +28,11 @@ local plugins = {
 
   {
     "stevearc/conform.nvim",
-    --  for users those who want auto-save conform + lazyloading!
-    -- event = "BufWritePre",
     config = function()
       require "custom.configs.conform"
     end,
   },
 
-  -- TODO: check what this guy is actually doing.
   {
     "mfussenegger/nvim-lint",
     config = function()
@@ -45,51 +40,27 @@ local plugins = {
     end,
   },
 
-  -- Git related
-  { "tpope/vim-fugitive", event = "VeryLazy" },
-
-  { "tpope/vim-rhubarb", event = "VeryLazy" },
-
   {
-    "tommcdo/vim-fubitive",
-    config = function()
-      vim.g.fubitive_domain_pattern = "bitbucket.corp.zscaler.com"
-    end,
-    event = "VeryLazy",
+    "tpope/vim-sleuth",
+    event = "BufRead"
   },
 
-  { "tpope/vim-sleuth", event = "BufRead" },
-
-  { "tpope/vim-surround", event = "BufRead" },
+  {
+    "tpope/vim-surround",
+    event = "BufRead",
+    enabled = false
+  },
 
   { import = "custom.configs.extras.diffview" },
   { import = "custom.configs.extras.dressing" },
+  { import = "custom.configs.extras.fugitive" },
   { import = "custom.configs.extras.harpoon" },
   { import = "custom.configs.extras.mason-extras" },
   { import = "custom.configs.extras.noice" },
+  { import = "custom.configs.extras.telescope" },
   { import = "custom.configs.extras.todo-comments" },
   { import = "custom.configs.extras.trouble" },
   { import = "custom.configs.extras.typescript-tools" },
-
-  {
-    "nvim-telescope/telescope.nvim",
-    dependencies = {
-      {
-        "nvim-telescope/telescope-fzf-native.nvim",
-        build = "make",
-      },
-      "nvim-telescope/telescope-frecency.nvim"
-    },
-    opts = overrides.telescope,
-  },
-
-  {
-    "HiPhish/rainbow-delimiters.nvim",
-    event = "BufRead",
-    config = function ()
-      require('rainbow-delimiters.setup').setup {}
-    end
-  },
 
   -- disabled plugins
 
